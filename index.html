@@ -226,6 +226,27 @@ main .inner { display: block; }
   .fx-head > div:last-child { display: none; }
   .fx-after::before { content: "→ "; color: var(--accent); }
 }
+
+.results { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); background: var(--paper); }
+.results > div { padding: 16px 18px; border-right: 1px solid var(--line); display: grid; gap: 4px; align-content: start; min-width: 0; }
+.results > div:last-child { border-right: 0; }
+.r-num { font-family: var(--display); font-size: 40px; font-weight: 600; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.r-txt { font-size: 14px; color: var(--muted); line-height: 1.45; }
+@media (max-width: 760px) {
+  .results { grid-template-columns: 1fr 1fr; }
+  .results > div:nth-child(2) { border-right: 0; }
+  .results > div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+}
+.s-arm { stroke: var(--fg); stroke-width: 4; stroke-linecap: round; fill: none; }
+.s-pivot { fill: var(--paper); stroke: var(--fg); stroke-width: 2; }
+.s-warmfill { fill: var(--warm); }
+.s-dim { stroke: var(--muted); stroke-width: 1; fill: none; }
+.s-weld path, .s-weld { stroke: var(--warm); stroke-width: 2.5; fill: none; }
+.s-result { fill: var(--accent); font-family: var(--mono); font-size: 13px; font-weight: 500; }
+.s-lidplain { fill: var(--frost); stroke: var(--fg); stroke-width: 1.5; }
+.s-heat { fill: var(--warm); }
+.s-chamber { stroke: var(--fg); stroke-width: 2; fill: none; }
+.s-drop { fill: var(--cold); }
 </style>
 </head>
 <body>
@@ -259,6 +280,13 @@ main .inner { display: block; }
       <a class="btn" href="#contact">Contact</a>
     </div>
   </div>
+</div>
+
+<div class="results" aria-label="Key results">
+  <div><span class="r-num">0</span><span class="r-txt">field lid failures since my 2023 fix on CryoArc™ Deca and Tera</span></div>
+  <div><span class="r-num">-40%</span><span class="r-txt">steering column cost after my DFMA redesign</span></div>
+  <div><span class="r-num">All</span><span class="r-txt">AutoGuide robots adopted my charging collector as the standard</span></div>
+  <div><span class="r-num">3</span><span class="r-txt">sample registration systems built, passed formal DVT</span></div>
 </div>
 
 <div class="scale-box" aria-label="Operating temperatures of products I have worked on">
@@ -610,6 +638,8 @@ main .inner { display: block; }
       <li><b>A small chamber on top of the lid</b> that collects condensation and directs it away, so it cannot build up and freeze on the lid.</li>
     </ol>
     <p>Both parts were designed to be added to existing freezers as a field retrofit.</p>
+
+
   </div>
 
   <div class="d-section">
@@ -802,6 +832,47 @@ main .inner { display: block; }
       <li><b>Firm contact every time.</b> The mechanism pivots down, then compresses straight down onto the charger to make a firm electrical contact.</li>
       <li><b>Retrofittable.</b> It had to fit on existing robots, not only new ones.</li>
     </ul>
+
+    <figure class="diagram">
+      <div class="diagram-scroll">
+        <svg viewBox="0 0 680 245" role="img" aria-labelledby="cc-title">
+          <title id="cc-title">Charging collector: retracted, pivoting down, and pressing straight down on the floor charger</title>
+          <defs>
+            <marker id="cc-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="s-head" d="M0 0 L10 5 L0 10 Z"/></marker>
+            <marker id="cc-arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="s-head" d="M0 0 L10 5 L0 10 Z"/></marker>
+          </defs>
+          <text class="s-label" x="115" y="80" text-anchor="middle">Robot</text>
+          <path class="s-dim" d="M10 100 V180"/>
+          <path class="s-dim" d="M4 100 H16 M4 180 H16"/>
+          <text class="s-small" x="16" y="144">2.5 in</text>
+          <rect class="s-box" x="20" y="50" width="190" height="50" rx="3"/>
+          <path class="s-line" d="M14 180 H216"/>
+          <rect class="s-warmfill" x="90" y="172" width="90" height="8"/>
+          <path class="s-arm" d="M65 106 L170 110"/>
+          <rect class="s-lid" x="140" y="106" width="44" height="9" rx="2"/>
+          <circle class="s-pivot" cx="65" cy="106" r="5"/>
+          <rect class="s-box" x="240" y="50" width="190" height="50" rx="3"/>
+          <path class="s-line" d="M234 180 H436"/>
+          <rect class="s-warmfill" x="310" y="172" width="90" height="8"/>
+          <path class="s-arm" d="M285 106 L360 150"/>
+          <rect class="s-lid" x="344" y="148" width="44" height="9" rx="2" transform="rotate(30 366 152)"/>
+          <path class="s-thin" d="M390 112 A 70 70 0 0 1 380 146" marker-end="url(#cc-arr)"/>
+          <circle class="s-pivot" cx="285" cy="106" r="5"/>
+          <rect class="s-box" x="460" y="50" width="190" height="50" rx="3"/>
+          <path class="s-line" d="M454 180 H656"/>
+          <rect class="s-warmfill" x="530" y="172" width="90" height="8"/>
+          <path class="s-arm" d="M505 106 L565 162"/>
+          <rect class="s-lid" x="548" y="162" width="60" height="9" rx="2"/>
+          <path class="s-line" d="M578 124 V154" marker-end="url(#cc-arr2)"/>
+          <circle class="s-pivot" cx="505" cy="106" r="5"/>
+          <text class="s-small" x="115" y="226" text-anchor="middle">1. Retracted while driving</text>
+          <text class="s-small" x="335" y="226" text-anchor="middle">2. Pivots down</text>
+          <text class="s-small" x="555" y="226" text-anchor="middle">3. Presses straight down</text>
+          <text class="s-small" x="135" y="196" text-anchor="middle">Floor charger</text>
+        </svg>
+      </div>
+      <figcaption>Simplified concept sketch for illustration. Not the production design.</figcaption>
+    </figure>
     <p>I took it from concept through design, prototype, testing, and release.</p>
     <p class="result">Became the standard charging collector on all AutoGuide robots.</p>
   </div>
@@ -814,6 +885,8 @@ main .inner { display: block; }
   <div class="d-section">
     <h2>Lower cost: steering column redesign</h2>
     <p>The original steering column was over-designed, built as a complex weldment. Using design for manufacturing and assembly (DFMA), I replaced it with a much simpler design made from box tube.</p>
+
+
     <p class="result">Cut steering column production cost by 40%.</p>
   </div>
 
